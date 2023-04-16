@@ -14,7 +14,12 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use(blogRoutes);
+app.use("/api/blogs", blogRoutes);
+
+// default route
+app.use("/", (req, res) => {
+	res.json({ msg: "this is home" });
+});
 
 // connect to db
 mongoose
