@@ -1,11 +1,17 @@
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+
 function App() {
 	return (
 		<div className="App">
-			<h1>This is Vite React</h1>
-			<p>very fast</p>
-			<h2>Now i get it</h2>
-			<h3>this can be very fast</h3>
-			<p>reaaact</p>
+			<Navbar />
+			<Routes>
+				<Route
+					path="/"
+					element={<Home />}
+				/>
+			</Routes>
 		</div>
 	);
 }
