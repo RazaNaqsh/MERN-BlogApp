@@ -2,11 +2,13 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
 // middleware
+app.use(cors);
 app.use(express.json());
 app.use((req, res, next) => {
 	console.log(req.path, req.method);
@@ -17,9 +19,9 @@ app.use((req, res, next) => {
 app.use("/api/blogs", blogRoutes);
 
 // default route
-app.use("/", (req, res) => {
-	res.json({ msg: "this is home" });
-});
+// app.use("/", (req, res) => {
+// 	res.json({ msg: "this is home" });
+// });
 
 // connect to db
 mongoose

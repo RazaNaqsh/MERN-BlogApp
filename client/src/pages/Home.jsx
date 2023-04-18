@@ -1,7 +1,11 @@
+import Blog from "../components/Blog";
+import Hero from "../components/Hero";
+
 const Home = () => {
 	return (
 		<main>
-			<div></div>
+			<Hero />
+			<Blog />
 		</main>
 	);
 };
