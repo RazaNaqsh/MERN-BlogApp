@@ -32,9 +32,19 @@ const delete_blog = async (req, res) => {
 	res.status(200).json(blog);
 };
 
+// update blog
+const update_blog = async (req, res) => {
+	const { id } = req.params;
+	const blog = await Blog.findOneAndUpdate({ _id: id }, req.body, {
+		new: true,
+	});
+	res.status(200).json(blog);
+};
+
 module.exports = {
 	get_blogs,
 	create_blogs,
 	get_blog,
 	delete_blog,
+	update_blog,
 };

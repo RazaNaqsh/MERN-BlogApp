@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "mern-BlogApp",
+    "dateExported": "2023-04-18T10:06:53.015Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4b2020ea-a7a2-4389-99e5-6ab3058a4966",
+            "colId": "6db9793d-8085-47f8-9d70-b8c49efa5fb7",
+            "containerId": "",
+            "name": "getAll blogs",
+            "url": "http://localhost:4000/api/blogs",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-18T09:57:06.326Z",
+            "modified": "2023-04-18T09:57:06.326Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a635a2fb-7a59-4d99-a8b4-d86ab4ea2d90",
+            "colId": "6db9793d-8085-47f8-9d70-b8c49efa5fb7",
+            "containerId": "",
+            "name": "create Blog",
+            "url": "http://localhost:4000/api/blogs",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-04-18T09:57:25.178Z",
+            "modified": "2023-04-18T09:57:25.178Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"blog2\",\n  \"snippet\":\"Snippet2\",\n  \"content\":\"content2\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "751b401f-8bf5-40a2-b9c7-b64fe8dd78d6",
+            "colId": "6db9793d-8085-47f8-9d70-b8c49efa5fb7",
+            "containerId": "",
+            "name": "get a blog",
+            "url": "http://localhost:4000/api/blogs/643e69490810c400bac2c4e9",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-04-18T09:58:16.295Z",
+            "modified": "2023-04-18T09:58:16.295Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0ec2c073-2266-4e42-b6c5-976a9aa2dd6b",
+            "colId": "6db9793d-8085-47f8-9d70-b8c49efa5fb7",
+            "containerId": "",
+            "name": "delete a blog",
+            "url": "http://localhost:4000/api/blogs/643e69490810c400bac2c4e9",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-04-18T09:59:28.443Z",
+            "modified": "2023-04-18T09:59:28.443Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "33b18f8f-fa58-45f0-ae69-69aa8f2d3aa9",
+            "colId": "6db9793d-8085-47f8-9d70-b8c49efa5fb7",
+            "containerId": "",
+            "name": "update a blog",
+            "url": "http://localhost:4000/api/blogs/643e6a1e0810c400bac2c4ed",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2023-04-18T10:06:45.397Z",
+            "modified": "2023-04-18T10:06:45.397Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{ \n  \"title\": \"disu isu secondo bloggo\",\n  \"snippet\": \"dis sudu be a snipetto\",\n  \"content\": \"contento sud be nisu\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
