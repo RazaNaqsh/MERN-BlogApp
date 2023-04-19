@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const Blog = () => {
@@ -27,21 +28,24 @@ const Blog = () => {
 				<h3 className="text-2xl text-center">
 					Read ideas from across the World..
 				</h3>
-				<div className="flex flex-wrap">
+				<div className="w-[90%] mx-auto flex flex-wrap  gap-4 ">
 					{blogs &&
 						blogs.map((blog) => (
-							<div
+							<Link
 								key={blog._id}
-								className="w-[300px] h-[300px] p-4"
+								to={`/blogs/${blog._id}`}
 							>
-								<h3 className="">{blog.title}</h3>
-								<p>{blog.snippet}</p>
-								<p>
-									{formatDistanceToNow(new Date(blog.createdAt), {
-										addSuffix: true,
-									})}
-								</p>
-							</div>
+								<div className="w-[300px] h-[300px] p-4 border-2 rounded-lg border-indigo-300 space-y-2">
+									<h3 className="text-lg ">{blog.title}</h3>
+									<p className="text-sm">{blog.snippet}</p>
+									<p className="text-sm text-right">
+										~{" "}
+										{formatDistanceToNow(new Date(blog.createdAt), {
+											addSuffix: true,
+										})}
+									</p>
+								</div>
+							</Link>
 						))}
 				</div>
 			</div>
