@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const Blog = () => {
-	const [blogs, setBlogs] = useState(null);
+	const [blogs, setBlogs] = useState([]);
 
 	useEffect(() => {
 		const fetchBlogs = async () => {
 			try {
-				const response = await fetch("http://localhost:4000/api/blogs", {
-					method: "GET",
-				});
+				const response = await fetch("http://localhost:4000/api/blogs");
 
 				const data = await response.json();
 
-				setBlogs(data);
+				if (response.ok) setBlogs(data);
 			} catch (error) {
 				console.log(error);
 			}
@@ -31,8 +30,17 @@ const Blog = () => {
 				<div className="flex flex-wrap">
 					{blogs &&
 						blogs.map((blog) => (
-							<div>
-								<p>{blog.title}</p>
+							<div
+								key={blog._id}
+								className="w-[300px] h-[300px] p-4"
+							>
+								<h3 className="">{blog.title}</h3>
+								<p>{blog.snippet}</p>
+								<p>
+									{formatDistanceToNow(new Date(blog.createdAt), {
+										addSuffix: true,
+									})}
+								</p>
 							</div>
 						))}
 				</div>
