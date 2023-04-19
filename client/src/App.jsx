@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import BlogDetails from "./pages/BlogDetails";
+import Create from "./pages/Create";
 
 function App() {
 	return (
@@ -15,6 +16,10 @@ function App() {
 				<Route
 					path="/blogs/:id"
 					element={<BlogDetails />}
+				/>
+				<Route
+					path="/create"
+					element={<Create />}
 				/>
 			</Routes>
 		</div>
