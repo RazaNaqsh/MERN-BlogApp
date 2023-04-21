@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+	const navigate = useNavigate();
+
 	const [blogData, setBlogData] = useState({});
 
 	const handleChange = (e) => {
@@ -20,7 +23,7 @@ const Create = () => {
 		const json = await response.json();
 
 		if (response.ok) {
-			//update blog state
+			navigate("/");
 		}
 	};
 	return (
@@ -36,7 +39,7 @@ const Create = () => {
 							placeholder="Enter Title"
 							name="title"
 							onChange={handleChange}
-							className="w-full p-4"
+							className="w-full p-4 text-black"
 						/>
 					</div>
 					<div>
@@ -45,7 +48,7 @@ const Create = () => {
 							placeholder="Enter Snippet"
 							name="snippet"
 							onChange={handleChange}
-							className="w-full p-4"
+							className="w-full p-4 text-black"
 						/>
 					</div>
 					<div>
@@ -56,7 +59,7 @@ const Create = () => {
 							cols="30"
 							rows="10"
 							placeholder="Enter Content here.."
-							className="w-full p-4"
+							className="w-full p-4 text-black"
 						></textarea>
 					</div>
 					<div className="m-auto">
