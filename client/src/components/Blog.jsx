@@ -35,7 +35,9 @@ const Blog = () => {
 		});
 		const json = await response.json();
 		if (response.ok) {
-			navigate("/");
+			// navigate("/");
+			// This is until , redux isnt added
+			window.location.reload();
 		}
 	};
 	return (
@@ -47,30 +49,36 @@ const Blog = () => {
 				<div className="my-10 w-[90%] mx-auto flex flex-wrap  gap-8 ">
 					{blogs.length > 0 ? (
 						blogs.map((blog) => (
-							<Link
+							<div
 								key={blog._id}
-								to={`/blogs/${blog._id}`}
+								className="w-[300px] h-[300px] p-6 border-2 rounded-lg border-indigo-300 space-y-2 relative z-10"
 							>
-								<div className="w-[300px] h-[300px] p-6 border-2 rounded-lg border-indigo-300 space-y-2 relative z-10">
-									<span
-										className="absolute z-50 top-3 right-3 material-symbols-outlined hover:scale-90"
-										onClick={() => handleDelete(blog._id, event)}
-									>
-										delete
+								<span
+									className="absolute z-50 top-3 right-3 material-symbols-outlined hover:scale-90"
+									onClick={() => handleDelete(blog._id, event)}
+								>
+									delete
+								</span>
+								<h3 className="text-lg ">{blog.title}</h3>
+								<p className="text-sm">{blog.snippet}</p>
+								{/* <p className="text-sm text-right">
+									~{" "}
+									{formatDistanceToNow(new Date(blog.createdAt), {
+										addSuffix: true,
+									})}
+								</p> */}
+								<p className="text-sm text-right">
+									~ {format(new Date(blog.createdAt), "dd MMM','yyyy")}
+								</p>
+								<span class="material-symbols-outlined absolute right-12 bottom-3">
+									edit
+								</span>
+								<Link to={`/blogs/${blog._id}`}>
+									<span class="material-symbols-outlined absolute bottom-3 right-3">
+										open_in_new
 									</span>
-									<h3 className="text-lg ">{blog.title}</h3>
-									<p className="text-sm">{blog.snippet}</p>
-									{/* <p className="text-sm text-right">
-										~{" "}
-										{formatDistanceToNow(new Date(blog.createdAt), {
-											addSuffix: true,
-										})}
-									</p> */}
-									<p className="text-sm text-right">
-										~ {format(new Date(blog.createdAt), "dd MMM','yyyy")}
-									</p>
-								</div>
-							</Link>
+								</Link>
+							</div>
 						))
 					) : (
 						<div className="m-auto">
