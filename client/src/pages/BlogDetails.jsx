@@ -24,9 +24,9 @@ const BlogDetails = () => {
 	return (
 		<main>
 			{blog && (
-				<div>
-					<h1 className="text-2xl">{blog.title}</h1>
-					<p>{blog.content}</p>
+				<div className="text-center">
+					<h1 className="my-8 text-4xl">{blog.title}</h1>
+					<p className="w-[60%] m-auto ">{blog.content}</p>
 				</div>
 			)}
 		</main>

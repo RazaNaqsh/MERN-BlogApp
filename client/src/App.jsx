@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import BlogDetails from "./pages/BlogDetails";
 import Create from "./pages/Create";
 import EditBlog from "./pages/EditBlog";
+import About from "./pages/About";
 
 function App() {
 	return (
@@ -13,6 +14,10 @@ function App() {
 				<Route
 					path="/"
 					element={<Home />}
+				/>
+				<Route
+					path="/about"
+					element={<About />}
 				/>
 				<Route
 					path="/blogs/:id"

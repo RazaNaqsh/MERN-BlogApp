@@ -54,7 +54,7 @@ const Blog = () => {
 								className="w-[300px] h-[300px] p-6 border-2 rounded-lg border-indigo-300 space-y-2 relative z-10"
 							>
 								<span
-									className="absolute z-50 top-3 right-3 material-symbols-outlined hover:scale-95"
+									className="absolute z-50 cursor-pointer top-3 right-3 material-symbols-outlined hover:scale-95"
 									onClick={() => handleDelete(blog._id, event)}
 								>
 									delete
@@ -71,12 +71,12 @@ const Blog = () => {
 									~ {format(new Date(blog.createdAt), "dd MMM','yyyy")}
 								</p>
 								<Link to={`/blogs/edit/${blog._id}`}>
-									<span class="material-symbols-outlined hover:scale-95 absolute right-12 bottom-3">
+									<span className="absolute material-symbols-outlined hover:scale-95 right-12 bottom-3">
 										edit
 									</span>
 								</Link>
 								<Link to={`/blogs/${blog._id}`}>
-									<span class="material-symbols-outlined hover:scale-95 absolute bottom-3 right-3">
+									<span className="absolute material-symbols-outlined hover:scale-95 bottom-3 right-3">
 										open_in_new
 									</span>
 								</Link>
@@ -84,9 +84,7 @@ const Blog = () => {
 						))
 					) : (
 						<div className="m-auto">
-							<p className="text-3xl text-white border-2 border-indi ">
-								No Blogs to Read
-							</p>
+							<p className="text-3xl text-white ">No Blogs to Read</p>
 						</div>
 					)}
 				</div>

@@ -28,7 +28,8 @@ const Create = () => {
 	};
 	return (
 		<main>
-			<div className="flex justify-center">
+			<div className="flex flex-col items-center">
+				<h1 className="my-5 text-2xl">Create New Blog</h1>
 				<form
 					onSubmit={handleSubmit}
 					className="flex flex-col w-2/5 gap-8"
