@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { useBlogContext } from "../hooks/useBlogContext";
 
 const Blog = () => {
-	const navigate = useNavigate();
+	// const [blogs, setBlogs] = useState([]);
 
-	const [blogs, setBlogs] = useState([]);
+	const { blogs, dispatch } = useBlogContext();
 
 	useEffect(() => {
 		const fetchBlogs = async () => {
@@ -16,13 +16,17 @@ const Blog = () => {
 
 				const data = await response.json();
 
-				if (response.ok) setBlogs(data);
+				if (response.ok) {
+					// setBlogs(data);
+					dispatch({ type: "SET_BLOGS", payload: data });
+				}
 			} catch (error) {
 				console.log(error);
 			}
 		};
 		fetchBlogs();
-	}, []);
+	}, [dispatch]);
+
 	useEffect(() => {
 		console.log(blogs);
 	}, [blogs]);
@@ -33,11 +37,9 @@ const Blog = () => {
 		const response = await fetch("http://localhost:4000/api/blogs/" + id, {
 			method: "DELETE",
 		});
-		const json = await response.json();
+		const data = await response.json();
 		if (response.ok) {
-			// navigate("/");
-			// This is until , redux isnt added
-			window.location.reload();
+			dispatch({ type: "DELETE_BLOG", payload: data });
 		}
 	};
 	return (
@@ -47,7 +49,7 @@ const Blog = () => {
 					Read ideas from across the World..
 				</h3>
 				<div className="my-10 w-[90%] mx-auto flex flex-wrap  gap-8 ">
-					{blogs.length > 0 ? (
+					{blogs ? (
 						blogs.map((blog) => (
 							<div
 								key={blog._id}

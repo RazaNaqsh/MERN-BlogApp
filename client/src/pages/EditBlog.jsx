@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useBlogContext } from "../hooks/useBlogContext";
 
 const EditBlog = () => {
 	const navigate = useNavigate();
+
+	const { dispatch } = useBlogContext();
 
 	const { id } = useParams();
 	const [blog, setBlog] = useState(null);
@@ -36,9 +39,10 @@ const EditBlog = () => {
 				"Content-Type": "application/json",
 			},
 		});
-		const json = await response.json();
+		const data = await response.json();
 
 		if (response.ok) {
+			console.log(data);
 			navigate("/");
 		}
 	};
