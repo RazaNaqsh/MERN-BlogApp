@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const blogRoutes = require("./routes/blogRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
@@ -17,11 +18,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/blogs", blogRoutes);
-
-// default route
-// app.use("/", (req, res) => {
-// 	res.json({ msg: "this is home" });
-// });
+app.use("/api/user", userRoutes);
 
 // connect to db
 mongoose
