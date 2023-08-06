@@ -1,3 +1,7 @@
 <h1 align="center">FullStack Blog App</h1>
 
-This is my First MERN App
+## Tech used:
+
+MERN, Tailwind
+
+This is my First MERN App. Some basic functionalities of CRUD.
